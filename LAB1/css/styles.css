@@ -17,6 +17,14 @@ img {
   display: block;
 }
 
+/*Style rules for mobile viewport */
+
+
+/*Hide tab-desk class */
+.tab-desk {
+  display: none;
+}
+
 /* Style rules for header content */
 header {
   text-align: center;
