@@ -1,29 +1,27 @@
 # _Responsive Design Part 2: Designing for Tablet and Desktop Devices_
 
-## Introduction
-Responsive design is a website development strategy that strives to provide an optimal user experience of a website regardless of the device used
-## Project — Redesign a Website for Mobile Devices
-## Exploring Responsive Design
-- Fluid layout: A fluid layout or grid applies proportional size measurements to the webpage wireframe and content so that the content stretches, shrinks, and grows as the size of the viewport changes
--  Responsive or flexible images: do not have height and width attributes or values in the HTML document.
--  Media queries: Media queries allow the webpage developer to detect the approximate pixel size of the current viewport
 
-## Designing for Mobile Devices
-Learn about mobile-specific web development methods
-## Using Responsive Design
-![](https://uphinh.vn/images/2022/03/07/46b720c87bd967380485c145ea56348f.png)
-## Following a Mobile-First Strategy
-![](https://uphinh.vn/images/2022/03/07/a1f3afa2f84c102a7671e2afa1170ba4.png)
-Optimize the interface to maximize the mobile user experience. The following are some key best practices when designing for mobile viewports.
-1. Make use of 100% of the screen space.
-2. Design the navigation to be easy and intuitive.
-3. Keep load times minimal. Enhance load times by removing bandwidth-intensive 
-content and streamlining your HTML code.
-4. Display essential page content and hide nonessential page content.
-5. Make the content easy to access and read. 
-6. Design a simple layout
-### To Add the Meta Viewport Element for Responsive Design
-![](https://uphinh.vn/images/2022/03/07/41af2f14aca3470a1d82807eec1b811a.png)
-### To Add a Comment for Mobile Styles
-![](https://uphinh.vn/images/2022/03/07/ef1a2091e0543a3e8c307119d355bf98.png)
-### Sticky Elements
+### Project — Use Media Queries to Design for Tablet and Desktop Viewports
+-  Breakpoints:
+![](https://uphinh.vn/images/2022/03/08/7d1278c02c605a8813f59a74a29ed59b.png)
+
+- Media Query Expressions:
+```
+<link rel="stylesheet" href="css/styles-mobile.css" media="screen and (max-width: 480px)">
+```
+```
+<link rel="stylesheet" href="css/styles-tablet.css" 
+media="screen and (min-width: 481px) and (max-width: 768px)">
+```
+- Common Media Query Features
+![](https://uphinh.vn/images/2022/03/08/6634e304b24411fcbc99d86762c57207.png)
+### Using Dynamic Pseudo-Classes
+
+![](https://uphinh.vn/images/2022/03/08/8c131d7aa2b215c63d7cd167a5c3cdf1.png)
+### Using Gradients
+![](https://uphinh.vn/images/2022/03/08/a444d0a427bdbe6c6f5e409d6d1220fe.png)
+
+# _Improving Web Design with New Page Layouts_
+- HTML 5 Semantic Elements
+![](https://uphinh.vn/images/2022/03/08/64d86e13291522aba4d5a7a47176c5b7.png)
+- Acticle Element
