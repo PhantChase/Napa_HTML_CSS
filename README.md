@@ -1,5 +1,4 @@
-# _Responsive Design_ 
-# _Part 1: Designing for Mobile Devices_
+# _Responsive Design Part 2: Designing for Tablet and Desktop Devices_
 
 ## Introduction
 Responsive design is a website development strategy that strives to provide an optimal user experience of a website regardless of the device used
@@ -28,5 +27,3 @@ content and streamlining your HTML code.
 ### To Add a Comment for Mobile Styles
 ![](https://uphinh.vn/images/2022/03/07/ef1a2091e0543a3e8c307119d355bf98.png)
 ### Sticky Elements
-(ISSUES)
-### Responsive Navigation
