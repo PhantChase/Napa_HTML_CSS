@@ -1,32 +1,62 @@
-# _Responsive Design_ 
-# _Part 1: Designing for Mobile Devices_
+# _Creating Tables and Forms_
+### Creating a Table with HTML Elements
+![](https://uphinh.vn/images/2022/03/09/079da8ded09d5ea5960b8619f706acdf.png)
+Example:
+```
+<table>
+    <tr>
+        <td>Semester 1</td>
+        <td>Semester 2</td>
+        <td>Semester 3</td>
+        <td>Semester 4</td>
+    </tr>
+    <tr>
+        <td>English I</td>
+        <td>English II</td>
+        <td>Spanish I</td>
+        <td>Spanish II</td>
+    </tr>
+    <tr>
+        <td>College Algebra</td>
+        <td>College Geometry</td>
+        <td>Calculus</td>
+        <td>Trigonometry</td>
+    </tr>
+    <tr>
+        <td>Physical Science</td>
+        <td>Biology</td>
+        <td>Humanities</td>
+        <td>World History</td>
+    </tr>
+</table>
+```
+Result:
+![](https://uphinh.vn/images/2022/03/09/cb146c06dbebd473cb7ca1c8121ece4f.png)
+##### Table Borders, Headers, and Captions
 
-## Introduction
-Responsive design is a website development strategy that strives to provide an optimal user experience of a website regardless of the device used
-## Project — Redesign a Website for Mobile Devices
-## Exploring Responsive Design
-- Fluid layout: A fluid layout or grid applies proportional size measurements to the webpage wireframe and content so that the content stretches, shrinks, and grows as the size of the viewport changes
--  Responsive or flexible images: do not have height and width attributes or values in the HTML document.
--  Media queries: Media queries allow the webpage developer to detect the approximate pixel size of the current viewport
-
-## Designing for Mobile Devices
-Learn about mobile-specific web development methods
-## Using Responsive Design
-![](https://uphinh.vn/images/2022/03/07/46b720c87bd967380485c145ea56348f.png)
-## Following a Mobile-First Strategy
-![](https://uphinh.vn/images/2022/03/07/a1f3afa2f84c102a7671e2afa1170ba4.png)
-Optimize the interface to maximize the mobile user experience. The following are some key best practices when designing for mobile viewports.
-1. Make use of 100% of the screen space.
-2. Design the navigation to be easy and intuitive.
-3. Keep load times minimal. Enhance load times by removing bandwidth-intensive 
-content and streamlining your HTML code.
-4. Display essential page content and hide nonessential page content.
-5. Make the content easy to access and read. 
-6. Design a simple layout
-### To Add the Meta Viewport Element for Responsive Design
-![](https://uphinh.vn/images/2022/03/07/41af2f14aca3470a1d82807eec1b811a.png)
-### To Add a Comment for Mobile Styles
-![](https://uphinh.vn/images/2022/03/07/ef1a2091e0543a3e8c307119d355bf98.png)
-### Sticky Elements
-(ISSUES)
-### Responsive Navigation
+```
+<caption>Example for caption</caption>
+<tr>
+    <th>Head</th>
+</tr>
+<tr>
+    <td>Body</td>
+</tr>
+```
+##### Table Element Attributes
+Example for Colspan:
+```
+<th colspan="3">Course Meeting</th>
+```
+Example for rowspan:
+```
+<th rowspan="3">Office Hours</th>
+```
+### Styling Table Elements
+![](https://uphinh.vn/images/2022/03/09/9fab474057b69f29ac8082515604788e.png)![](https://uphinh.vn/images/2022/03/09/d3a47f944ea816abcb2d956b7db76be9.png)
+##### Form Controls
+##### Form Processing
+Example:
+```
+<form method="GET" action="formInfo.php">
+```
