@@ -1,37 +1,51 @@
-# _Integrating Audio and Video_
-### Using Multimedia
-- Creating Multimedia Files
-- Embedded vs. External Multimedia
-- Media Plaaayers and Plug-Ins
-- HTML 5 and Multimedia
-- Flash
-- Java Appleets
-- Object Element
+# _Creating Interactivity with CSS and JavScript_
+
+### Using CSS to create Interactivity
+![](https://uphinh.vn/images/2022/03/09/b8cf4c8e070d772a2881ac2e18febee8.png)
+![](https://uphinh.vn/images/2022/03/09/4f0b7ec1c11050d3694ba66a85eb8b9f.png)
+### Incorporating JavaScript
+##### JavaScript Terminology
 ```
-<object data="audio.wav">
-    <param name="autoplay" value="true">
-</object>
+    documnet.write("Good Morning");
 ```
-### Integrating Audio
-##### Audio File Formats
-![](https://uphinh.vn/images/2022/03/09/d14208456e3f15129c0230cba3374b90.png)
-##### File Compression and Codecs
-##### HTML 5 audio Element
+Event Handlers
+![](https://uphinh.vn/images/2022/03/09/4b31a7690d1d15e49720f97d73569615.png)
+##### Writing JavaScript Code
 ```
-<audio controls autoplay>
-    <source src="music.mp3" type="audio/mp3"> 
-    <p>Your browser does not support the audio element.</p>
-</audio>
+// Single line comment syntax
+/* Multiple line 
+comment syntax */
+
+foodTwo = pepper;
+foodOne = squash; foodTwo = pepper;
+
 ```
-### Integrating Video
-##### Video File Formats
-![](https://uphinh.vn/images/2022/03/09/49b2f0be789431086364414149e5a18e.png)
-##### HTML 5 Video Element
-##### Using the video Element
-![](https://uphinh.vn/images/2022/03/09/41311894b7017a5fff0ec2574888c8cc.png)
+Or
 ```
-<video width="320" height="240" controls="controls">
-    <source src="advertisement.mp4" type="video/mp4"> 
-    <p>Your browser does not support the video element.</p>
-</video>
+<script>
+ JavaScript statements;
+</script>
+```
+Or
+```
+<script src="scripts/myscripts.js"></script>
+```
+##### DOM Methods
+Example:
+```
+var logo = document.getElementById("ffc-logo");
+```
+Methods:
+![](https://uphinh.vn/images/2022/03/09/a520fec7bac4e8803f9ed77fbecb7922.png)
+
+##### Using if/else Statements
+```
+function day() {
+ var day = document.getElementById("date");
+ if (day === "Saturday") {
+ document.write("I love Saturdays");
+ } else {
+ document.write("I wish it was Saturday");
+ }
+}
 ```
