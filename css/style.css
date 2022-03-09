@@ -17,20 +17,58 @@ img {
   display: block;
 }
 
+/* Style rule for avartar */
+.avatar {
+  background-color: #626269;
+  text-align: center;
+}
+.avatar img {
+  border: 10px solid #000000;
+  margin: auto;
+  border-radius: 50%;
+}
+.avatar h2 {
+  font-size: 35px;
+  padding-bottom: 15px;
+}
+
+/* Style rule for Info */
+.info {
+  border: 5px solid #6f6f72;
+  background-color: #bdbdc4;
+}
+.info .des {
+  padding: 10px;
+}
+
+/* Style rule for table */
+table {
+  width: 100%;
+}
+table caption {
+  font-size: 35px;
+  font-weight: bold;
+  padding: 20px;
+}
+table, th, td {
+  border: 3px solid #23a6d5;
+}
+
 /* Style rules for header content */
 header {
   text-align: center;
   font-size: 3em;
-  color: #1715b1;
+  color: #090929;
 }
 
 header h1 {
+  font-family: 'Sansita Swashed', cursive;
   font-style: italic;
 }
 
 /* Style rules for navigation area */
 nav {
-  background-color: #131091;
+  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);;
 }
 
 nav ul {
@@ -71,6 +109,16 @@ main p {
 }
 
 section figure {
-  display: inline-block;
- font-size: 2em;
+  width: 29%;
+  float: left;
+  margin: 0 2%;
+}
+
+section figure img {
+  border: #131091;
+  border-style: solid;
+}
+
+section figure img:hover {
+  transform: scale(1.15)
 }
