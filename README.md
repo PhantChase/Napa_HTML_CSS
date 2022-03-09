@@ -1,62 +1,37 @@
-# _Creating Tables and Forms_
-### Creating a Table with HTML Elements
-![](https://uphinh.vn/images/2022/03/09/079da8ded09d5ea5960b8619f706acdf.png)
-Example:
+# _Integrating Audio and Video_
+### Using Multimedia
+- Creating Multimedia Files
+- Embedded vs. External Multimedia
+- Media Plaaayers and Plug-Ins
+- HTML 5 and Multimedia
+- Flash
+- Java Appleets
+- Object Element
 ```
-<table>
-    <tr>
-        <td>Semester 1</td>
-        <td>Semester 2</td>
-        <td>Semester 3</td>
-        <td>Semester 4</td>
-    </tr>
-    <tr>
-        <td>English I</td>
-        <td>English II</td>
-        <td>Spanish I</td>
-        <td>Spanish II</td>
-    </tr>
-    <tr>
-        <td>College Algebra</td>
-        <td>College Geometry</td>
-        <td>Calculus</td>
-        <td>Trigonometry</td>
-    </tr>
-    <tr>
-        <td>Physical Science</td>
-        <td>Biology</td>
-        <td>Humanities</td>
-        <td>World History</td>
-    </tr>
-</table>
+<object data="audio.wav">
+    <param name="autoplay" value="true">
+</object>
 ```
-Result:
-![](https://uphinh.vn/images/2022/03/09/cb146c06dbebd473cb7ca1c8121ece4f.png)
-##### Table Borders, Headers, and Captions
-
+### Integrating Audio
+##### Audio File Formats
+![](https://uphinh.vn/images/2022/03/09/d14208456e3f15129c0230cba3374b90.png)
+##### File Compression and Codecs
+##### HTML 5 audio Element
 ```
-<caption>Example for caption</caption>
-<tr>
-    <th>Head</th>
-</tr>
-<tr>
-    <td>Body</td>
-</tr>
+<audio controls autoplay>
+    <source src="music.mp3" type="audio/mp3"> 
+    <p>Your browser does not support the audio element.</p>
+</audio>
 ```
-##### Table Element Attributes
-Example for Colspan:
+### Integrating Video
+##### Video File Formats
+![](https://uphinh.vn/images/2022/03/09/49b2f0be789431086364414149e5a18e.png)
+##### HTML 5 Video Element
+##### Using the video Element
+![](https://uphinh.vn/images/2022/03/09/41311894b7017a5fff0ec2574888c8cc.png)
 ```
-<th colspan="3">Course Meeting</th>
-```
-Example for rowspan:
-```
-<th rowspan="3">Office Hours</th>
-```
-### Styling Table Elements
-![](https://uphinh.vn/images/2022/03/09/9fab474057b69f29ac8082515604788e.png)![](https://uphinh.vn/images/2022/03/09/d3a47f944ea816abcb2d956b7db76be9.png)
-##### Form Controls
-##### Form Processing
-Example:
-```
-<form method="GET" action="formInfo.php">
+<video width="320" height="240" controls="controls">
+    <source src="advertisement.mp4" type="video/mp4"> 
+    <p>Your browser does not support the video element.</p>
+</video>
 ```
