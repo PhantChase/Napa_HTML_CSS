@@ -1,0 +1,267 @@
+body, header, nav, main, footer, img, h1 {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+.menu {
+  z-index: 1;
+  display: flex;
+  background-color: #FFFFFF;
+  height: 70px;
+  width: 100%;
+  margin: auto;
+  padding: 0;
+  -webkit-box-shadow: 0px 29px 45px 8px rgba(0,0,0,0.14); 
+  box-shadow: 0px 29px 45px 8px rgba(0,0,0,0.14);
+}
+
+.logo {
+  width: 255px;
+  height: 70px;
+  justify-content: center;
+  display: flex;
+}
+
+
+.logo-img {
+  margin: auto 0;
+}
+
+.logo-text {
+  margin: auto 0;
+}
+
+.logo-text h1 {
+  font-size: 14px;
+  background: #00FFFF;
+  background: -webkit-linear-gradient(to bottom, #00FFFF 0%, #0E00CF 100%);
+  background: -moz-linear-gradient(to bottom, #00FFFF 0%, #0E00CF 100%);
+  background: linear-gradient(to bottom, #00FFFF 0%, #0E00CF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.menu div img{
+  height: 40px;
+  width: 40px;
+}
+
+.click-here {
+  padding: 5px;
+  margin: 10px;
+}
+.side-bar{
+  position: fixed;
+  overflow-x: hidden;
+  margin: 0;
+  padding: 0;
+  width: 255px;
+  background-color: #FFFFFF;
+  position: fixed;
+  height: 93.3%;
+  -webkit-box-shadow: 21px 50px 40px -11px rgba(0,0,0,0.24); 
+  box-shadow: 21px 50px 40px -11px rgba(0,0,0,0.24);
+}
+.side-bar li {
+  font-family: Arial, Helvetica, sans-serif;
+  display: block;
+  color: black;
+  padding: 16px;
+  font-size: 14px;
+  text-decoration: none;
+}
+ 
+.side-bar li.active {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #E6F7FF;
+  color: #319cce;
+  font-size: 14px;
+  margin-right: 2px;
+}
+
+.side-bar li:hover:not(#chart) {
+  color: #319cce
+}
+
+.side-bar li>div>.chart:hover {
+  color: #319cce
+}
+
+.icon-name:hover {
+  color: #319cce
+}
+
+div.content {
+  margin-left: 200px;
+  padding: 1px 16px;
+  height: 1000px;
+}
+
+.side-bar li i{
+  padding: 10px;
+  margin-left: 5px;
+}
+
+.button-hide-show{
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+}
+
+.button-hide-show i{
+  margin: auto;
+  
+}
+
+.button-hide-show:hover{
+  background-color: #f4f4f4;
+  color: #319cce;
+}
+
+.charts {
+  margin-top: 25px;
+}
+.chart {
+  display: inline-block;
+}
+
+.container .charts div{
+  display: inline-block;
+  height: 50px;
+  float: left;
+  width: 100%;
+  margin-left: 30px;
+}
+
+#arrow {
+  width: 110px;
+  text-align: right;
+}
+
+.toggle {
+  --width: 80px;
+  --height: calc(var(--width) / 3);
+
+  position: relative;
+  display: inline-block;
+  width: var(--width);
+  height: var(--height);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  border-radius: var(--height);
+  cursor: pointer;
+}
+
+.toggle input {
+  display: none;
+}
+
+.toggle .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: var(--height);
+  background-color: #ccc;
+  transition: all 0.4s ease-in-out;
+}
+
+.toggle .slider::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(var(--height));
+  height: calc(var(--height));
+  border-radius: calc(var(--height) / 2);
+  background-color: #fff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease-in-out;
+}
+
+.toggle input:checked+.slider {
+  background-color: #2196F3;
+}
+
+.toggle input:checked+.slider::before {
+  transform: translateX(calc(var(--width) - var(--height)));
+}
+
+.toggle .labels {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 12px;
+    font-family: sans-serif;
+    transition: all 0.4s ease-in-out;
+}
+
+.toggle .labels::after {
+    content: attr(data-off);
+    position: absolute;
+    right: 15px;
+    color: #4d4d4d;
+    opacity: 1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4);
+    transition: all 0.4s ease-in-out;
+}
+
+.toggle .labels::before {
+    content: attr(data-on);
+    position: absolute;
+    left: 15px;
+    color: #ffffff;
+    opacity: 0;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.4);
+    transition: all 0.4s ease-in-out;
+}
+
+.toggle input:checked~.labels::after {
+    opacity: 0;
+}
+
+.toggle input:checked~.labels::before {
+    opacity: 1;
+}
+
+.footer-sidebar {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+
+.text-switcher {
+  margin-top: 5px;
+  margin-right: 41px;
+}
+
+.switcher {
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.sa {
+  display: none;
+  font-family: Arial, Helvetica, sans-serif;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
+  background-color: #ffffff;
+  width: 128px;
+  position: relative;
+  left: 83px;
+  top: 220px;
+  padding: 10px;
+}
+.sa div {
+  padding: 6px;
+}
+.sa div i{
+  margin-right: 15px;
+}
+
+.chartShow:hover {
+  color:#319cce
+}

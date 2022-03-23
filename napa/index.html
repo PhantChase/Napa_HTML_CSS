@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <title>Side bar</title>
+</head>
+<body>
+  <div class="menu">
+    <div class="logo" id="logo">
+      <div class="logo-img"><img alt="logo"  src="https://antd-admin.zuiidea.com/logo.svg"></div>
+      <div class="logo-text" id="logo-text"><h1 >ANTD ADMIN</h1></div>
+    </div>
+    <div class="button-hide-show" onclick="showHideSidebar()">
+      <i class="fa fa-outdent"></i>
+    </div>
+    
+  </div>
+  <div class="side-bar" id="side-bar">
+    <div class="container">
+      <li class="active" id="active" href="#dashboard"><i class="fa fa-dashboard"></i><span class="text">Dashboard</span></li>
+      <li class="inactive" href="#news"><i class="fa fa-user-o"></i><span class="text">Users</span></li>
+      <li class="inactive" href="#contact"><i class="fa fa-shopping-cart"></i><span class="text">Posts</span></li>
+      <li class="inactive" id="chart" href="#about" class="icon-name" onmouseover="showChartHover()" onmouseout="hideChartHover()" onclick="showHideChart()">
+        <div>
+          <i class="fa fa-terminal"></i>
+          <span class="text" >Charts</span>
+          <i class="fa fa-arrow-down" id="arrow"></i>
+        </div>
+        <div class="charts">
+          <div class="chart" id="echart"><i class="fa fa-window-minimize"></i>EChart</div>
+          <div class="chart"><i class="fa fa-bar-chart"></i>HighCharts</div>
+          <div class="chart"><i class="fa fa-area-chart"></i>Rechartst</div>
+        </div>
+      </li>
+    </div>
+
+    <div id="footer-sidebar" class="footer-sidebar">
+      <div class="text-switcher">
+        <i class="fa-lightbulb-o"></i>
+        <label id="text-switch">
+          Switch Theme
+        </label>
+      </div>
+      <div class="switcher">
+        <label class="toggle">
+          <input onchange="darkMode()" id="switcher" type="checkbox">
+          <span class="slider"></span>
+          <span class="labels" data-on="Dark" data-off="Light" ></span>
+        </label>
+      </div>
+    </div>
+    
+  </div>
+  <div class="sa" id="sa" onmouseover="showChartHover()" onmouseout="hideChartHover()">
+    <div class="chartShow" id="echart"><i class="fa fa-window-minimize"></i>EChart</div>
+    <div class="chartShow"><i class="fa fa-bar-chart"></i>HighCharts</div>
+    <div class="chartShow"><i class="fa fa-area-chart"></i>Rechartst</div>
+  </div>
+</body>
+</html>
+<script>
+  function showHideChart() {
+    var a = document.getElementById("side-bar").offsetWidth;
+    if (a == 256) {
+      var a = document.getElementsByClassName("chart");
+      for (var i=0; i < a.length; i++) {
+        if(a[i].style.display == "none"){
+          a[i].style.display = "inline-block";
+          document.getElementById("arrow").className = "fa fa-arrow-up";
+        }else {
+          a[i].style.display = "none";
+          document.getElementById("arrow").className = "fa fa-arrow-down";
+        }
+      }
+    }
+  }
+  function showHideSidebar() {
+    var a = document.getElementById("side-bar").offsetWidth;
+    if (a == 256) {
+      if(document.getElementById("echart").style.display != "none" ){
+        showHideChart();
+      }
+      document.getElementById("side-bar").style.width = "80px";
+      document.getElementById("logo").style.width = "80px";
+      document.getElementById('footer-sidebar').style.display = "none";
+      document.getElementById("logo-text").style.display = "none";
+      var a = document.getElementsByClassName("text");
+      for (var i=0; i < a.length; i++) {
+        a[i].style.display = "none";
+      }
+    }else {
+      document.getElementById("side-bar").style.width = "256px";
+      document.getElementById("logo").style.width = "256px";
+      document.getElementById('footer-sidebar').style.display = "flex";
+      document.getElementById("logo-text").style.display = "inline-block";
+      var a = document.getElementsByClassName("text");
+      for (var i=0; i < a.length; i++) {
+        a[i].style.display = "inline-block";
+
+      }
+    }
+  }
+  function darkMode() {
+    if(document.getElementById('switcher').checked) {
+      document.getElementById('side-bar').style.backgroundColor = "#000000";
+      document.getElementById('logo').style.backgroundColor = "#000000";
+      document.getElementById('sa').style.backgroundColor = "#000000";
+      
+      document.getElementById('text-switch').style.color = "#FFFFFF";
+      var a = document.getElementsByClassName("inactive");
+      for (var i = 0; i < a.length; i++) {
+        a[i].style.color = "#FFFFFF"
+      }
+      var a = document.getElementsByClassName("chartShow");
+      for (var i = 0; i < a.length; i++) {
+        a[i].style.color = "#FFFFFF"
+      }
+      document.getElementById('active').style.color = "#d8dee1";
+      document.getElementById('active').style.backgroundColor = "#1c8abe";
+      
+    } else {
+      document.getElementById('side-bar').style.backgroundColor = "#FFFFFF";
+      document.getElementById('logo').style.backgroundColor = "#FFFFFF";
+      document.getElementById('text-switch').style.color = "#000000";
+      document.getElementById('sa').style.backgroundColor = "#FFFFFF";
+      var a = document.getElementsByClassName("chartShow");
+      for (var i = 0; i < a.length; i++) {
+        a[i].style.color = "#000000"
+      }
+      var a = document.getElementsByClassName("inactive");
+      for (var i = 0; i < a.length; i++) {
+        a[i].style.color = "#000000"
+      }
+      document.getElementById('active').style.color = "#319cce";
+      document.getElementById('active').style.backgroundColor = "#E6F7FF";
+    }
+
+    var css = '.side-bar li:hover:not(#chart){color: #black!important}';
+    var style = document.createElement('style');
+
+    if (style.styleSheet) {
+      style.styleSheet.cssText = css;
+    } else {
+      style.appendChild(document.createTextNode(css));
+    }
+    document.getElementsByClassName('inactive')[3].appendChild(style);
+  }
+  function showChartHover() {
+    var a = document.getElementById("side-bar").offsetWidth;
+    if (a >= 253) {
+      
+    } else {
+      document.getElementById("sa").style.display = "inline-block";
+    }
+  }
+  function hideChartHover() {
+    var a = document.getElementById("side-bar").offsetWidth;
+    if (a == 256) {
+
+    } else {
+      document.getElementById("sa").style.display = "none";
+    }
+  }
+</script>
