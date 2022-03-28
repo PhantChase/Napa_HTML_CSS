@@ -181,4 +181,10 @@ console.log(numbers.some(number => number > 10)) // true
 ```
 - Lặp tất cả các phần tử trong một Array, chỉ phần 1 phần tử thoả mãn điều kiện thì Array này sẽ trả về true
 ### BT9. Phân biệt worker, child process
+| Worker        | Child process |
+| ------------- | ------------- |
+| Worker threads là một module trong node.js cho phép chạy mã Javascript song song với luồng chính.          | child_process có thể được sử dụng để tạo ra các quy trình con. Các quy trình con giao tiếp với nhau bằng hệ thống nhắn tin tích hợp sẵn         |
+| worker threads tạo ra một thread mới trong chính process của ứng dụng đang chạy.           | tạo ra một process riêng biệt với triển khai đầy đủ của một event loop + một main thread         |
+| Các thread có tài nguyên sử dụng chung nên việc giao tiếp giữa chúng tương đối dễ dàng.           | mỗi process là độc lập về bộ nhớ cho nên việc giao tiếp giữa các process tương đối phức tạp.         |
+| Chi phí tài nguyên ít hơn           | Chi phí tài nguyên nhiều hơnt2         |
 ### BT10. Blocking, non blocking, vì sao Nodejs chạy đơn luồng mà không bị blocking.
