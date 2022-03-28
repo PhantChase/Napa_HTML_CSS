@@ -188,3 +188,10 @@ console.log(numbers.some(number => number > 10)) // true
 | Các thread có tài nguyên sử dụng chung nên việc giao tiếp giữa chúng tương đối dễ dàng.           | mỗi process là độc lập về bộ nhớ cho nên việc giao tiếp giữa các process tương đối phức tạp.         |
 | Chi phí tài nguyên ít hơn           | Chi phí tài nguyên nhiều hơnt2         |
 ### BT10. Blocking, non blocking, vì sao Nodejs chạy đơn luồng mà không bị blocking.
+| Blocking        | Non-blocking |
+| ------------- | ------------- |
+| Đồng bộ       | Bất đồng bộ |
+| Các dòng lệnh sẽ được chạy lần lượt từ trên xuống dưới 1 cách chờ đợi nhau, khi dòng trên kết thúc thì dòng tiếp theo mới được phép bắt đầu thực hiện           | Non blocking cũng giống như đoạn code đang chạy blocking bỗng mở một luồng chạy riêng ra và xử lý song song vs các đoạn code sau mà ko bắt chúng chờ đợi.         |
+
+#### Vì sao Nodejs chạy đơn luồng mà không bị blocking ?
+- Vì có eventloop xử lý
