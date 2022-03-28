@@ -168,5 +168,17 @@ console.log(numbers.map(Math.sqrt));
 - Sử dụng map sẽ nhận được một mảng mới so với mảng ban đầu
 - forEach thì không nhận già trị trả về
 ### BT8. Phân biệt sự khác nhau giữa some, every
+#### Every
+```
+const numbers = [6, 7, 8, 9]
+console.log(numbers.every(number => number > 5))
+```
+- Nếu tất cả các phần tử trong mảng thoả mãn một hoặc nhiều điều kiện. Hàm này sẽ trả về true, nhưng chỉ cần có 1 phần trử không thoả mãn điều kiện (failed), thì hàm này sẽ trả về false.
+#### Some
+```
+const numbers = [15, 2, 3, 4, 5]
+console.log(numbers.some(number => number > 10)) // true
+```
+- Lặp tất cả các phần tử trong một Array, chỉ phần 1 phần tử thoả mãn điều kiện thì Array này sẽ trả về true
 ### BT9. Phân biệt worker, child process
 ### BT10. Blocking, non blocking, vì sao Nodejs chạy đơn luồng mà không bị blocking.
