@@ -143,6 +143,30 @@ console.log(b)
 Callback: Callback là một hàm sẽ được thực hiện sau khi một hàm khác đã thực hiện xong
 
 ### BT7. Phân biệt sự khác nhau giữa  for, map, forEach
+#### Khai báo For
+```
+for (var i; i <10 ; i++>)
+{
+	// Code here
+}
+```
+#### Khai báo ForEach
+```
+const fruits = ["apple", "orange", "cherry"];
+fruits.forEach(myFunction);
+ 
+function myFunction(item, index) {
+  text += index + ": " + item + "<br>"; 
+}
+```
+#### Khai báo Map
+```
+const numbers = [4, 9, 16, 25];
+console.log(numbers.map(Math.sqrt));
+```
+
+- Sử dụng map sẽ nhận được một mảng mới so với mảng ban đầu
+- forEach thì không nhận già trị trả về
 ### BT8. Phân biệt sự khác nhau giữa some, every
 ### BT9. Phân biệt worker, child process
 ### BT10. Blocking, non blocking, vì sao Nodejs chạy đơn luồng mà không bị blocking.
