@@ -22,19 +22,42 @@
   </div>
   <div class="side-bar" id="side-bar">
     <div class="container">
-      <li class="active" id="active" href="#dashboard"><i class="fa fa-dashboard"></i><span class="text">Dashboard</span></li>
-      <li class="inactive" href="#news"><i class="fa fa-user-o"></i><span class="text">Users</span></li>
-      <li class="inactive" href="#contact"><i class="fa fa-shopping-cart"></i><span class="text">Posts</span></li>
+      <li class="active" id="active" href="#dashboard">
+        <div class="menu-item">
+          <i class="fa fa-dashboard"></i><span class="text">Dashboard</span>
+        </div>
+      </li>
+      <li class="inactive" href="#news">
+        <div class="menu-item">
+          <i class="fa fa-user-o"></i><span class="text">Users</span>
+        </div>
+      </li>
+      <li class="inactive" href="#contact">
+        <div class="menu-item">
+          <i class="fa fa-shopping-cart"></i><span class="text">Posts</span>
+        </div>
+      </li>
       <li class="inactive" id="chart" href="#about" class="icon-name" onmouseover="showChartHover()" onmouseout="hideChartHover()" onclick="showHideChart()">
-        <div>
+        <div class="menu-item">
           <i class="fa fa-terminal"></i>
           <span class="text" >Charts</span>
-          <i class="fa fa-arrow-down" id="arrow"></i>
+          <i class="fa fa-angle-up" id="arrow"></i>
         </div>
-        <div class="charts">
-          <div class="chart" id="echart"><i class="fa fa-window-minimize"></i>EChart</div>
-          <div class="chart"><i class="fa fa-bar-chart"></i>HighCharts</div>
-          <div class="chart"><i class="fa fa-area-chart"></i>Rechartst</div>
+        <div onclick="removeClick(event)" class="charts">
+          <div>
+            <div class="chart" id="echart" onclick="openSubChart()">
+              <i class="fa fa-window-minimize"></i>
+              <span>EChart<i class="fa fa-angle-up" id="arrow2"></i></span>
+            </div>
+            <div class="sub-echarts">
+              <div class="sub-echart">Echart One</div>
+              <div class="sub-echart">Echart Two</div>
+              <div class="sub-echart">Echart Three</div>
+            </div>
+          </div>
+          
+          <div class="chart" id="highchart"><i class="fa fa-bar-chart"></i>HighCharts</div>
+          <div class="chart" id="rechart"><i class="fa fa-area-chart"></i>Rechartst</div>
         </div>
       </li>
     </div>
@@ -57,27 +80,56 @@
     
   </div>
   <div class="sa" id="sa" onmouseover="showChartHover()" onmouseout="hideChartHover()">
-    <div class="chartShow" id="echart"><i class="fa fa-window-minimize"></i>EChart</div>
+    <div class="chartShow" id="echart">
+      <i class="fa fa-window-minimize"></i>
+      <span>EChart</span>
+      <div>
+        <div>Echart One</div>
+        <div>Echart One</div>
+        <div>Echart One</div>
+      </div>
+    </div>
     <div class="chartShow"><i class="fa fa-bar-chart"></i>HighCharts</div>
     <div class="chartShow"><i class="fa fa-area-chart"></i>Rechartst</div>
   </div>
 </body>
 </html>
 <script>
+  function openSubChart() {
+    
+    var a = document.getElementsByClassName("sub-echart");
+    for (var i = 0; i < a.length; i++) {
+      if (a[i].style.display == "block") {
+        a[i].style.display = "none";
+        document.getElementById("arrow2").className = "fa fa-angle-up";
+      } else {
+        a[i].style.display = "block";
+        document.getElementById("arrow2").className = "fa fa-angle-down";
+      }
+    }
+  2
+    // document.getElementById('rechart').style.marginTop = "100px"
+  }
+  function removeClick(event) {
+    event.stopPropagation();
+  }
   function showHideChart() {
+    
+    console.log("debug")
     var a = document.getElementById("side-bar").offsetWidth;
     if (a == 256) {
       var a = document.getElementsByClassName("chart");
       for (var i=0; i < a.length; i++) {
         if(a[i].style.display == "none"){
           a[i].style.display = "inline-block";
-          document.getElementById("arrow").className = "fa fa-arrow-up";
+          document.getElementById("arrow").className = "fa fa-angle-up";
         }else {
           a[i].style.display = "none";
-          document.getElementById("arrow").className = "fa fa-arrow-down";
+          document.getElementById("arrow").className = "fa fa-angle-down";
         }
       }
     }
+    
   }
   function showHideSidebar() {
     var a = document.getElementById("side-bar").offsetWidth;
@@ -106,7 +158,17 @@
     }
   }
   function darkMode() {
+    
+    
     if(document.getElementById('switcher').checked) {
+      var css = '.side-bar li:hover:not(#chart) {background-color: rgb(28, 138, 190); color: #FFFFFF !important} .inactive:hover { color: #FFFFFF}  .side-bar li>div>.chart:hover {color: #FFFFFF;}';
+      var style = document.createElement('style');
+      if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+      } else {
+        style.appendChild(document.createTextNode(css));
+      }
+      document.getElementsByTagName('head')[0].appendChild(style);
       document.getElementById('side-bar').style.backgroundColor = "#000000";
       document.getElementById('logo').style.backgroundColor = "#000000";
       document.getElementById('sa').style.backgroundColor = "#000000";
@@ -114,16 +176,25 @@
       document.getElementById('text-switch').style.color = "#FFFFFF";
       var a = document.getElementsByClassName("inactive");
       for (var i = 0; i < a.length; i++) {
-        a[i].style.color = "#FFFFFF"
+        a[i].style.color = "hsla(0,0%,100%,.65)"
       }
       var a = document.getElementsByClassName("chartShow");
       for (var i = 0; i < a.length; i++) {
-        a[i].style.color = "#FFFFFF"
+        a[i].style.color = "#c8c9cc"
       }
       document.getElementById('active').style.color = "#d8dee1";
       document.getElementById('active').style.backgroundColor = "#1c8abe";
       
     } else {
+      var css = '.side-bar li:hover:not(#chart) {background-color: #E6F7FF; color: #319cce !important} .inactive:hover { color: #319cce} #chart:hover {background-color: #E6F7FF;} .side-bar li>div>.chart:hover {color: #319cce;}';
+      var style = document.createElement('style');
+      if (style.styleSheet) {
+        style.styleSheet.cssText = css;
+      } else {
+        style.appendChild(document.createTextNode(css));
+      }
+      document.getElementsByTagName('head')[0].appendChild(style);
+      
       document.getElementById('side-bar').style.backgroundColor = "#FFFFFF";
       document.getElementById('logo').style.backgroundColor = "#FFFFFF";
       document.getElementById('text-switch').style.color = "#000000";
@@ -140,15 +211,7 @@
       document.getElementById('active').style.backgroundColor = "#E6F7FF";
     }
 
-    var css = '.side-bar li:hover:not(#chart){color: #black!important}';
-    var style = document.createElement('style');
-
-    if (style.styleSheet) {
-      style.styleSheet.cssText = css;
-    } else {
-      style.appendChild(document.createTextNode(css));
-    }
-    document.getElementsByClassName('inactive')[3].appendChild(style);
+    
   }
   function showChartHover() {
     var a = document.getElementById("side-bar").offsetWidth;
@@ -166,4 +229,5 @@
       document.getElementById("sa").style.display = "none";
     }
   }
+  showHideSidebar()
 </script>

@@ -66,9 +66,10 @@ body, header, nav, main, footer, img, h1 {
   font-family: Arial, Helvetica, sans-serif;
   display: block;
   color: black;
-  padding: 16px;
+  
   font-size: 14px;
   text-decoration: none;
+  cursor: pointer;
 }
  
 .side-bar li.active {
@@ -79,16 +80,46 @@ body, header, nav, main, footer, img, h1 {
   margin-right: 2px;
 }
 
-.side-bar li:hover:not(#chart) {
+.menu-item {
+  padding: 12px;
+}
+
+.menu-item:hover {
+  background-color: #E6F7FF;
   color: #319cce
 }
 
-.side-bar li>div>.chart:hover {
+.chart:hover {
   color: #319cce
 }
+/* .side-bar li>div>.chart:hover {
+  color: #319cce;
+}
+
+.side-bar li>div>.chart>.sub-echart:hover {
+  color: black;
+} */
+
+/* #chart:hover  {
+  background-color: #E6F7FF;
+  color: #319cce
+}
+
+#chart:hover .chart  {
+
+  color: #319cce
+}
+
+.charts:hover  {
+  background-color: #00FFFF;
+} */
 
 .icon-name:hover {
   color: #319cce
+}
+
+.sub-echart {
+  display: block;
 }
 
 div.content {
@@ -100,6 +131,11 @@ div.content {
 .side-bar li i{
   padding: 10px;
   margin-left: 5px;
+}
+
+.sub-echart:hover .sub-echarts {
+  background-color: red;
+  color: red;
 }
 
 .button-hide-show{
@@ -119,19 +155,38 @@ div.content {
   color: #319cce;
 }
 
-.charts {
-  margin-top: 25px;
-}
 .chart {
   display: inline-block;
 }
 
-.container .charts div{
+#echart {
+ 
+}
+
+.container .charts .chart{
   display: inline-block;
   height: 50px;
   float: left;
   width: 100%;
   margin-left: 30px;
+}
+
+.container .chart .sub-echart{
+  margin-left: 50px;
+  padding: 10px;
+}
+
+.sub-echarts {
+  margin-left: 90px;
+}
+
+.sub-echart {
+  display: none;
+  padding: 8px;
+}
+
+.sub-echart:hover {
+  color: #319cce;
 }
 
 #arrow {
