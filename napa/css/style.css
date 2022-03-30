@@ -45,6 +45,10 @@ body, header, nav, main, footer, img, h1 {
   height: 40px;
   width: 40px;
 }
+.menu-dark div img{
+  height: 40px;
+  width: 40px;
+}
 /* .menu-item::after {
   display: flex;
   content: "";
@@ -84,16 +88,18 @@ body, header, nav, main, footer, img, h1 {
   background-color: #E6F7FF;
   color: #319cce;
   font-size: 14px;
-  margin-right: 2px;
+  
 }
 
 .menu-item {
   padding: 12px;
+  
 }
 
 .menu-item:hover {
   background-color: #E6F7FF;
-  color: #319cce
+  color: #319cce;
+  border-right: 2px solid #1890ff;
 }
 
 .chart:hover {
@@ -157,7 +163,6 @@ div.content {
 
 .button-hide-show i{
   margin: auto;
-  
 }
 
 .button-hide-show:hover{
@@ -450,4 +455,16 @@ div.content {
 [tooltip][flow^="right"]:hover::before,
 [tooltip][flow^="right"]:hover::after {
   animation: tooltips-horz 300ms ease-out forwards;
+}
+
+.menu-dark {
+  z-index: 1;
+  display: flex;
+  height: 70px;
+  width: 100%;
+  margin: auto;
+  padding: 0;
+  -webkit-box-shadow: 0px 29px 45px 8px rgba(0,0,0,0.14); 
+  box-shadow: 0px 29px 45px 8px rgba(0,0,0,0.14);
+  background-color: #000000
 }
