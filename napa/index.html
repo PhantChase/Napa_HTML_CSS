@@ -23,23 +23,23 @@
   </div>
   <div class="side-bar" id="side-bar" >
     <div class="container">
-      <li class="active" id="active" href="#dashboard" tooltip="Slide to the right" flow="right">
+      <li class="active" id="active" href="#dashboard" flow="right">
         <div class="menu-item">
           <i class="fa fa-dashboard"></i><span class="text">Dashboard</span>
         </div>
 
       </li>
-      <li class="inactive" href="#news">
+      <li class="inactive" href="#news" flow="right">
         <div class="menu-item">
           <i class="fa fa-user-o"></i><span class="text">Users</span>
         </div>
       </li>
-      <li class="inactive" href="#contact">
+      <li class="inactive" href="#contact" flow="right">
         <div class="menu-item">
           <i class="fa fa-shopping-cart"></i><span class="text">Posts</span>
         </div>
       </li>
-      <li class="inactive" id="chart" href="#about" class="icon-name" onmouseover="showChartHover()" onmouseout="hideChartHover()" onclick="showHideChart()">
+      <li class="inactive" id="chart" href="#about" flow="right" class="icon-name" onmouseover="showChartHover()" onmouseout="hideChartHover()" onclick="showHideChart()">
         <div class="menu-item">
           <i class="fa fa-terminal"></i>
           <span class="text" >Charts</span>
@@ -149,10 +149,16 @@
     
   }
   function showHideSidebar() {
+
     var sideBar = document.getElementById("side-bar");
     var arrow = document.getElementById('arrow');
     var echart = document.getElementById("echart");
     if (sideBar.offsetWidth == 256) {
+      document.getElementById("active").setAttribute("tooltip","Dashboard")
+      var active =  document.getElementsByClassName('inactive');
+      active[0].setAttribute("tooltip","Users")
+      active[1].setAttribute("tooltip","Post")
+      active[2].setAttribute("tooltip","Charts")
       if(echart.style.display != "none" ){
         showHideChart();
       }
@@ -166,6 +172,13 @@
         a[i].style.display = "none";
       }
     }else {
+      document.getElementById("active").setAttribute("tooltip","")
+      var active =  document.getElementsByClassName('inactive');
+      
+      active[0].setAttribute("tooltip","")
+      active[1].setAttribute("tooltip","")
+      active[2].setAttribute("tooltip","")
+      
       arrow.style.display = "";
       sideBar.style.width = "256px";
       document.getElementById("logo").style.width = "256px";
