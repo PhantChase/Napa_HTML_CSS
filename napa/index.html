@@ -5,9 +5,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <link rel="icon" href="https://antd-admin.zuiidea.com/logo.svg" type="image/gif" sizes="16x16">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="css/style.css">
-  <title>Side bar</title>
+  <title>AnTd Admin Clone by Phant Chase</title>
 </head>
 <body>
   <div class="menu">
@@ -20,12 +21,13 @@
     </div>
     
   </div>
-  <div class="side-bar" id="side-bar">
+  <div class="side-bar" id="side-bar" >
     <div class="container">
-      <li class="active" id="active" href="#dashboard">
+      <li class="active" id="active" href="#dashboard" tooltip="Slide to the right" flow="right">
         <div class="menu-item">
           <i class="fa fa-dashboard"></i><span class="text">Dashboard</span>
         </div>
+
       </li>
       <li class="inactive" href="#news">
         <div class="menu-item">
@@ -47,7 +49,7 @@
           <div>
             <div class="chart" id="echart" onclick="openSubChart()">
               <i class="fa fa-window-minimize"></i>
-              <span>EChart<i class="fa fa-angle-up" id="arrow2"></i></span>
+              <span>EChart<i class="fa fa-angle-down" id="arrow2"></i></span>
             </div>
             <div class="sub-echarts">
               <div class="sub-echart">Echart One</div>
@@ -80,14 +82,15 @@
     
   </div>
   <div class="sa" id="sa" onmouseover="showChartHover()" onmouseout="hideChartHover()">
-    <div class="chartShow" id="echart">
+    <div class="chartShow" id="echart" onclick="showSmallSubChart()">
       <i class="fa fa-window-minimize"></i>
       <span>EChart</span>
-      <div>
-        <div>Echart One</div>
-        <div>Echart One</div>
-        <div>Echart One</div>
-      </div>
+      <i class="fa fa-angle-down" id="arrow3"></i>
+    </div>
+    <div class="sub-echarts-small" id="sub-echarts-small">
+      <div class="sub-echart-small">Echart One</div>
+      <div class="sub-echart-small">Echart One</div>
+      <div class="sub-echart-small">Echart One</div>
     </div>
     <div class="chartShow"><i class="fa fa-bar-chart"></i>HighCharts</div>
     <div class="chartShow"><i class="fa fa-area-chart"></i>Rechartst</div>
@@ -95,49 +98,66 @@
 </body>
 </html>
 <script>
-  function openSubChart() {
+  function showSmallSubChart() {
+    var eChartSmall = document.getElementById('sub-echarts-small');
+    var arrow3 = document.getElementById("arrow3");
+    if(eChartSmall.style.display == ""){
+      eChartSmall.style.display = "block"
+      arrow3.className = "fa fa-angle-up";
+    }else{
+      eChartSmall.style.display = ""
+      arrow3.className = "fa fa-angle-down";
+    }
     
-    var a = document.getElementsByClassName("sub-echart");
-    for (var i = 0; i < a.length; i++) {
-      if (a[i].style.display == "block") {
-        a[i].style.display = "none";
-        document.getElementById("arrow2").className = "fa fa-angle-up";
+  }
+  function openSubChart() {
+    var subEchart = document.getElementsByClassName("sub-echart");
+    var arrow2 = document.getElementById("arrow3");
+    for (var i = 0; i < subEchart.length; i++) {
+      if (subEchart[i].style.display == "block") {
+        subEchart[i].style.display = "none";
+        arrow2.className = "fa fa-angle-down";
       } else {
-        a[i].style.display = "block";
-        document.getElementById("arrow2").className = "fa fa-angle-down";
+        subEchart[i].style.display = "block";
+        arrow2.className = "fa fa-angle-up";
       }
     }
-  2
-    // document.getElementById('rechart').style.marginTop = "100px"
   }
   function removeClick(event) {
     event.stopPropagation();
   }
   function showHideChart() {
-    
-    console.log("debug")
-    var a = document.getElementById("side-bar").offsetWidth;
-    if (a == 256) {
-      var a = document.getElementsByClassName("chart");
-      for (var i=0; i < a.length; i++) {
-        if(a[i].style.display == "none"){
-          a[i].style.display = "inline-block";
+    var sideBar = document.getElementById("side-bar");
+    if (sideBar.offsetWidth == 256) {
+      var chart = document.getElementsByClassName("chart");
+      for (var i=0; i < chart.length; i++) {
+        if(chart[i].style.display == "none"){
+          chart[i].style.display = "inline-block";
           document.getElementById("arrow").className = "fa fa-angle-up";
         }else {
-          a[i].style.display = "none";
+          chart[i].style.display = "none";
           document.getElementById("arrow").className = "fa fa-angle-down";
+        }
+      }
+      var subEchart = document.getElementsByClassName("sub-echart");
+      for (var i = 0; i < subEchart.length; i++) {
+        if (subEchart[i].style.display == "block") {
+          subEchart[i].style.display = "none";
         }
       }
     }
     
   }
   function showHideSidebar() {
-    var a = document.getElementById("side-bar").offsetWidth;
-    if (a == 256) {
-      if(document.getElementById("echart").style.display != "none" ){
+    var sideBar = document.getElementById("side-bar");
+    var arrow = document.getElementById('arrow');
+    var echart = document.getElementById("echart");
+    if (sideBar.offsetWidth == 256) {
+      if(echart.style.display != "none" ){
         showHideChart();
       }
-      document.getElementById("side-bar").style.width = "80px";
+      arrow.style.display = "none";
+      sideBar.style.width = "80px";
       document.getElementById("logo").style.width = "80px";
       document.getElementById('footer-sidebar').style.display = "none";
       document.getElementById("logo-text").style.display = "none";
@@ -146,7 +166,8 @@
         a[i].style.display = "none";
       }
     }else {
-      document.getElementById("side-bar").style.width = "256px";
+      arrow.style.display = "";
+      sideBar.style.width = "256px";
       document.getElementById("logo").style.width = "256px";
       document.getElementById('footer-sidebar').style.display = "flex";
       document.getElementById("logo-text").style.display = "inline-block";
@@ -158,10 +179,74 @@
     }
   }
   function darkMode() {
-    
-    
     if(document.getElementById('switcher').checked) {
-      var css = '.side-bar li:hover:not(#chart) {background-color: rgb(28, 138, 190); color: #FFFFFF !important} .inactive:hover { color: #FFFFFF}  .side-bar li>div>.chart:hover {color: #FFFFFF;}';
+      var css = `
+
+      .menu { 
+        background-color: #000000
+      } 
+      .button-hide-show i { 
+        color: #FFFFFF
+      } 
+      .button-hide-show:hover { 
+        background-color: #3e3e3e 
+      } 
+      .inactive:hover { 
+        color: #FFFFFF
+      } 
+      .chart:hover {
+        color: #FFFFFF
+      } 
+      .sub-echart:hover {
+        color: #FFFFFF
+      } 
+      .menu-item:hover {
+        background-color: rgb(28, 138, 190);
+        color: #FFFFFF
+      }
+      #side-bar {
+        background-color: #000000;
+      }
+      #logo {
+        background-color: #000000;
+      }
+      #sa {
+        background-color: #000000;
+      }
+      #text-switch {
+        color: #FFFFFF
+      }
+      .inactive {
+        color: hsla(0,0%,100%,.65);
+      }
+      .chartShow {
+        color: #c8c9cc;
+      }
+      .chartShow:hover {
+        color: #FFFFFF
+      }
+      .sub-echart-small {
+        color: #c8c9cc;
+      }
+      .sub-echart-small:hover {
+        color: #FFFFFF;
+      }
+      .sub-echart-small:hover {
+        color: #FFFFFF;
+      }
+      #active {
+          color: #d8dee1;
+          background-color: #1c8abe;
+      }
+      .chart {
+        color: #d8dee1;
+      }
+      .sub-echart {
+        color: #d8dee1;
+      }
+      .menu-item {
+        color: #d8dee1;
+      }`;
       var style = document.createElement('style');
       if (style.styleSheet) {
         style.styleSheet.cssText = css;
@@ -169,24 +254,72 @@
         style.appendChild(document.createTextNode(css));
       }
       document.getElementsByTagName('head')[0].appendChild(style);
-      document.getElementById('side-bar').style.backgroundColor = "#000000";
-      document.getElementById('logo').style.backgroundColor = "#000000";
-      document.getElementById('sa').style.backgroundColor = "#000000";
-      
-      document.getElementById('text-switch').style.color = "#FFFFFF";
-      var a = document.getElementsByClassName("inactive");
-      for (var i = 0; i < a.length; i++) {
-        a[i].style.color = "hsla(0,0%,100%,.65)"
-      }
-      var a = document.getElementsByClassName("chartShow");
-      for (var i = 0; i < a.length; i++) {
-        a[i].style.color = "#c8c9cc"
-      }
-      document.getElementById('active').style.color = "#d8dee1";
-      document.getElementById('active').style.backgroundColor = "#1c8abe";
+
       
     } else {
-      var css = '.side-bar li:hover:not(#chart) {background-color: #E6F7FF; color: #319cce !important} .inactive:hover { color: #319cce} #chart:hover {background-color: #E6F7FF;} .side-bar li>div>.chart:hover {color: #319cce;}';
+      var css = ` 
+      .menu-item {
+        color: #000000;
+      } 
+      .inactive:hover {
+        color: #319cce
+      } 
+      .menu { 
+        background-color: #FFFFFF
+      } 
+      .button-hide-show i {
+        color: #000000 
+      } 
+      .button-hide-show:hover { 
+        background-color: #f4f4f4 
+      } 
+      .menu-item:hover {
+        background-color: #E6F7FF;
+        color: #319cce
+      } 
+      .chart:hover {
+        color: #319cce
+      } 
+      .sub-echart:hover {
+        color: #319cce
+      }
+      #side-bar {
+        background-color: #FFFFFF;
+      }
+      #logo {
+        background-color: #FFFFFF;
+      }
+      #sa {
+        background-color: #FFFFFF;
+      }
+      #text-switch {
+        color: #000000
+      }
+      .chartShow:hover {
+        color: #319cce;
+      }
+      .chart {
+        color: #000000;
+      }
+      .sub-echart-small {
+        color: #000000;
+      }
+      .sub-echart-small:hover {
+        color: #319cce;
+      }
+      .sub-echart {
+        color: #000000;
+      }
+      .chartShow {
+        color: #000000
+      }
+      .inactive {
+        color: #000000
+      }
+      #active {
+        color: #319cce;
+        background-color: #E6F7FF
+      }`;
       var style = document.createElement('style');
       if (style.styleSheet) {
         style.styleSheet.cssText = css;
@@ -194,21 +327,6 @@
         style.appendChild(document.createTextNode(css));
       }
       document.getElementsByTagName('head')[0].appendChild(style);
-      
-      document.getElementById('side-bar').style.backgroundColor = "#FFFFFF";
-      document.getElementById('logo').style.backgroundColor = "#FFFFFF";
-      document.getElementById('text-switch').style.color = "#000000";
-      document.getElementById('sa').style.backgroundColor = "#FFFFFF";
-      var a = document.getElementsByClassName("chartShow");
-      for (var i = 0; i < a.length; i++) {
-        a[i].style.color = "#000000"
-      }
-      var a = document.getElementsByClassName("inactive");
-      for (var i = 0; i < a.length; i++) {
-        a[i].style.color = "#000000"
-      }
-      document.getElementById('active').style.color = "#319cce";
-      document.getElementById('active').style.backgroundColor = "#E6F7FF";
     }
 
     
@@ -227,7 +345,11 @@
 
     } else {
       document.getElementById("sa").style.display = "none";
+      // if(document.getElementById('sub-echarts-small').style.display == "block"){
+      //   document.getElementById('sub-echarts-small').style.display = "none"
+      //   document.getElementById("arrow3").className = "fa fa-angle-down";
+      // }
     }
   }
-  showHideSidebar()
+  // showHideSidebar()
 </script>
