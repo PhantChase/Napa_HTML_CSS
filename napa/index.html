@@ -154,7 +154,6 @@
     var arrow = document.getElementById('arrow');
     var echart = document.getElementById("echart");
     if (sideBar.offsetWidth == 256) {
-      document.getElementById("active").setAttribute("tooltip","Dashboard")
       var active =  document.getElementsByClassName('inactive');
       active[0].setAttribute("tooltip","Users")
       active[1].setAttribute("tooltip","Post")
@@ -172,7 +171,7 @@
         a[i].style.display = "none";
       }
     }else {
-      document.getElementById("active").setAttribute("tooltip","")
+
       var active =  document.getElementsByClassName('inactive');
       
       active[0].setAttribute("tooltip","")
